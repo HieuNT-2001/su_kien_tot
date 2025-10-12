@@ -41,8 +41,7 @@ class _NotificationPageState extends State<NotificationPage> {
     });
   }
 
-  Widget _buildDataSection() {
-    int length = _isLoading ? 4 : notifications.length;
+  Widget _buildDataSection(int length) {
     if (length == 0) return const EmptyItem(title: 'Chưa có thông báo');
 
     return Column(
@@ -71,18 +70,9 @@ class _NotificationPageState extends State<NotificationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Row(
-                  children: [
-                    Text(
-                      'Thông báo',
-                      style: TextStyle(
-                        fontSize: 28,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Spacer(),
-                    Icon(Icons.checklist_rounded, size: 28),
-                  ],
+                const Text(
+                  'Thông báo',
+                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 16),
                 CustomTabBar(
@@ -97,7 +87,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                _buildDataSection(),
+                _buildDataSection(_isLoading ? 4 : notifications.length),
               ],
             ),
           ),
