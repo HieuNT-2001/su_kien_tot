@@ -13,7 +13,7 @@ class NotificationPage extends StatefulWidget {
 
 class _NotificationPageState extends State<NotificationPage> {
   bool _isLoading = true;
-  List<String> notifications = [];
+  List<String> _notifications = [];
 
   @override
   void initState() {
@@ -24,24 +24,20 @@ class _NotificationPageState extends State<NotificationPage> {
   Future<void> _refreshData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    setState(() {
-      _isLoading = false;
-      notifications = [
-        'thông báo 1',
-      ]; // bạn có thể thử: ["Thông báo 1", "Thông báo 2"]
-    });
+    _notifications = ['thông báo 1'];
+    // bạn có thể thử: ["Thông báo 1", "Thông báo 2"]
+    setState(() => _isLoading = false);
   }
 
   Future<void> _emptyData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    setState(() {
-      _isLoading = false;
-      notifications = [];
-    });
+    _notifications = [];
+    setState(() => _isLoading = false);
   }
 
-  Widget _buildDataSection(int length) {
+  Widget _buildDataSection() {
+    int length = _isLoading ? 4 : _notifications.length;
     if (length == 0) return const EmptyItem(title: 'Chưa có thông báo');
 
     return Column(
@@ -70,9 +66,18 @@ class _NotificationPageState extends State<NotificationPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Thông báo',
-                  style: TextStyle(fontSize: 28, fontWeight: FontWeight.bold),
+                const Row(
+                  children: [
+                    Text(
+                      'Thông báo',
+                      style: TextStyle(
+                        fontSize: 28,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Spacer(),
+                    Icon(Icons.checklist_rounded, size: 28),
+                  ],
                 ),
                 const SizedBox(height: 16),
                 CustomTabBar(
@@ -87,7 +92,7 @@ class _NotificationPageState extends State<NotificationPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                _buildDataSection(_isLoading ? 4 : notifications.length),
+                _buildDataSection(),
               ],
             ),
           ),
