@@ -13,7 +13,7 @@ class ActivityPage extends StatefulWidget {
 
 class _ActivityPageState extends State<ActivityPage> {
   bool _isLoading = true;
-  List<String> _activities = [];
+  List<String> activities = [];
 
   @override
   void initState() {
@@ -24,21 +24,24 @@ class _ActivityPageState extends State<ActivityPage> {
   Future<void> _refreshData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    _activities = ['hoạt động 1'];
-    // bạn có thể thử: ["Hoạt động 1", "Hoạt động 2"]
-    setState(() => _isLoading = false);
+    setState(() {
+      _isLoading = false;
+      activities = [
+        'hoạt động 1',
+      ]; // bạn có thể thử: ["Hoạt động 1", "Hoạt động 2"]
+    });
   }
 
   Future<void> _emptyData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    _activities = [];
-
-    setState(() => _isLoading = false);
+    setState(() {
+      _isLoading = false;
+      activities = [];
+    });
   }
 
-  Widget _buildDataSection() {
-    int length = _isLoading ? 4 : _activities.length;
+  Widget _buildDataSection(int length) {
     if (length == 0) return const EmptyItem(title: 'Chưa có hoạt động');
 
     return Column(
@@ -80,7 +83,7 @@ class _ActivityPageState extends State<ActivityPage> {
                   ],
                 ),
                 const SizedBox(height: 16),
-                _buildDataSection(),
+                _buildDataSection(_isLoading ? 4 : activities.length),
               ],
             ),
           ),
