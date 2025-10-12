@@ -24,16 +24,21 @@ class _NotificationPageState extends State<NotificationPage> {
   Future<void> _refreshData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    notifications = ['thông báo 1'];
-    // bạn có thể thử: ["Thông báo 1", "Thông báo 2"]
-    setState(() => _isLoading = false);
+    setState(() {
+      _isLoading = false;
+      notifications = [
+        'thông báo 1',
+      ]; // bạn có thể thử: ["Thông báo 1", "Thông báo 2"]
+    });
   }
 
   Future<void> _emptyData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    notifications = [];
-    setState(() => _isLoading = false);
+    setState(() {
+      _isLoading = false;
+      notifications = [];
+    });
   }
 
   Widget _buildDataSection() {
