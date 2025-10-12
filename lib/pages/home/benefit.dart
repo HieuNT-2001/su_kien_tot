@@ -24,7 +24,7 @@ class Benefit extends StatelessWidget {
         const SizedBox(height: 8),
         for (var i = 0; i < 3; i++) ...[
           ImageCard(
-            onTap: () => _launchBenefits,
+            onTap: () => _launchBenefits(),
             imageSrc: 'assets/images/banner.png',
           ),
           const SizedBox(height: 16),
