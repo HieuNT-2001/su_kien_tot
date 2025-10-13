@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:su_kien_tot/pages/home/benefit.dart';
-import 'package:su_kien_tot/pages/home/app_bar.dart';
+import 'package:su_kien_tot/pages/home/home_app_bar.dart';
 import 'package:su_kien_tot/pages/home/bottom_bar.dart';
 import 'package:su_kien_tot/pages/home/bottom_model.dart';
 import 'package:su_kien_tot/providers/app_state.dart';
@@ -24,11 +24,6 @@ class _HomeState extends State<HomeGuest> {
     setState(() {});
   }
 
-  void toggleSwitch(bool isCustomer) => setState(() {
-    if (isCustomer) context.read<AppState>().setRole('vendor');
-    if (!isCustomer) context.read<AppState>().setRole('customer');
-  });
-
   @override
   Widget build(BuildContext context) {
     String role = context.read<AppState>().role;
@@ -41,7 +36,7 @@ class _HomeState extends State<HomeGuest> {
           backgroundColor: const Color(0xFFF28F8F),
           foregroundColor: Colors.black,
           toolbarHeight: 140,
-          title: HomeAppBar(onChanged: (_) => toggleSwitch(role == 'customer')),
+          title: const HomeAppBar(),
         ),
         body: SingleChildScrollView(
           child: Padding(
