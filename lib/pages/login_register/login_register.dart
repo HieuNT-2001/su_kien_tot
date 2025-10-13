@@ -106,7 +106,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     ),
                     recognizer: TapGestureRecognizer()..onTap = _launchUrl,
                   ),
-                  const TextSpan(text: ' sử dụng của Vua Thợ'),
+                  const TextSpan(text: ' sử dụng của Sự kiện tốt'),
                 ],
               ),
             ),

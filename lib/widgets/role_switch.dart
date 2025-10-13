@@ -22,11 +22,9 @@ class RoleSwitch extends StatelessWidget {
           child: Switch(
             activeThumbImage: const AssetImage('assets/images/khach.png'),
             inactiveThumbImage: const AssetImage('assets/images/vendor.png'),
-            onChanged: (_) {
-              if (isCustomer) context.read<AppState>().setRole('vendor');
-              if (!isCustomer) context.read<AppState>().setRole('customer');
-            },
-
+            onChanged: (_) => context.read<AppState>().setRole(
+              isCustomer ? 'vendor' : 'customer',
+            ),
             value: isCustomer,
           ),
         ),

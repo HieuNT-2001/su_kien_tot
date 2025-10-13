@@ -15,12 +15,8 @@ class Menu extends StatelessWidget {
       ),
       child: Column(
         children: [
-          for (int i = 0; i < items.length; i++) ...[
-            MenuItem(
-              title: items[i].title,
-              icon: items[i].icon,
-              onTap: items[i].onTap,
-            ),
+          for (var item in items) ...[
+            MenuItem(title: item.title, icon: item.icon, onTap: item.onTap),
           ],
         ],
       ),
