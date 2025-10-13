@@ -26,7 +26,7 @@ class _HomeState extends State<HomeGuest> {
 
   @override
   Widget build(BuildContext context) {
-    String role = context.read<AppState>().role;
+    String role = context.watch<AppState>().role;
 
     return RefreshIndicator(
       onRefresh: _refreshData,

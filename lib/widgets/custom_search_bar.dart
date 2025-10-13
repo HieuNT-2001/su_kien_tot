@@ -17,7 +17,7 @@ class CustomSearchBar extends StatelessWidget {
           backgroundColor: const WidgetStatePropertyAll(Colors.transparent),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(16),
               side: const BorderSide(color: Colors.grey, width: 1),
             ),
           ),

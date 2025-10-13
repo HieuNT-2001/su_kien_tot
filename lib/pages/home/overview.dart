@@ -10,7 +10,7 @@ class Overview extends StatelessWidget {
         gradient: const LinearGradient(
           colors: [Color(0xFFF28F8F), Color.fromARGB(255, 242, 190, 190)],
         ),
-        borderRadius: BorderRadius.circular(10),
+        borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(16),
       child: Row(

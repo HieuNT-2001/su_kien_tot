@@ -25,7 +25,7 @@ class ImageCard extends StatelessWidget {
             height: 200,
             width: double.infinity,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(16),
               image: DecorationImage(
                 image: AssetImage(imageSrc),
                 fit: BoxFit.fill,
