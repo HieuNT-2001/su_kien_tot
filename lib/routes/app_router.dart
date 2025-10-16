@@ -9,6 +9,8 @@ import 'package:su_kien_tot/pages/introduction/introduction2.dart';
 import 'package:su_kien_tot/pages/introduction/introduction3.dart';
 import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
+import 'package:su_kien_tot/pages/search/search_page.dart';
+import 'package:su_kien_tot/pages/search/service_page.dart';
 import 'package:su_kien_tot/pages/start/start.dart';
 import 'package:su_kien_tot/widgets/floating_bar.dart';
 
@@ -36,6 +38,17 @@ class AppRouter {
       GoRoute(
         path: '/login-register',
         builder: (context, state) => const LoginRegister(),
+      ),
+      GoRoute(
+        path: '/search-page',
+        builder: (context, state) => const SearchPage(),
+      ),
+      GoRoute(
+        path: '/service-page',
+        builder: (context, state) {
+          final data = state.extra as Map<String, dynamic>;
+          return ServicePage(title: data['title'], image: data['image']);
+        },
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

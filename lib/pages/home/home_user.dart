@@ -42,7 +42,7 @@ class _HomeUserState extends State<HomeUser> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (role == 'customer') ...[
-                  CustomSearchBar(onTap: () => context.push('/')),
+                  CustomSearchBar(onTap: () => context.push('/search-page')),
                   const SizedBox(height: 16),
                   const QuickAccess(),
                   const SizedBox(height: 16),
