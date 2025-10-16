@@ -12,6 +12,7 @@ import 'package:su_kien_tot/pages/notification/notification_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/search/service_page.dart';
 import 'package:su_kien_tot/pages/start/start.dart';
+import 'package:su_kien_tot/pages/transaction_history/transaction_page.dart';
 import 'package:su_kien_tot/widgets/floating_bar.dart';
 
 class AppRouter {
@@ -49,6 +50,10 @@ class AppRouter {
           final data = state.extra as Map<String, dynamic>;
           return ServicePage(title: data['title'], image: data['image']);
         },
+      ),
+      GoRoute(
+        path: '/transaction-page',
+        builder: (context, state) => const TransactionPage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

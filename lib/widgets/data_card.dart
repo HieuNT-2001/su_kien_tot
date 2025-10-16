@@ -5,6 +5,7 @@ class DataCard extends StatelessWidget {
   final IconData? icon;
   final String title;
   final String content;
+  final String? extra;
   final String timestamp;
   final bool isLoading;
 
@@ -15,6 +16,7 @@ class DataCard extends StatelessWidget {
     required this.content,
     required this.timestamp,
     this.isLoading = false,
+    this.extra,
   });
 
   @override
@@ -34,13 +36,9 @@ class DataCard extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
-                      children: [
-                        Text(
-                          title,
-                          style: const TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    Text(
+                      title,
+                      style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     const SizedBox(height: 4),
                     Text(content, style: const TextStyle(color: Colors.grey)),
@@ -49,6 +47,8 @@ class DataCard extends StatelessWidget {
                   ],
                 ),
               ),
+              const SizedBox(width: 12),
+              if (extra != null) ...[Text(extra!)],
             ],
           ),
         ),

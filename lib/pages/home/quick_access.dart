@@ -21,7 +21,7 @@ class QuickAccess extends StatelessWidget {
             QuickAccessItem(
               icon: Icons.wallet_outlined,
               title: 'Lịch sử\ngiao dịch',
-              target: '/start',
+              target: '/transaction-page',
               size: 50,
             ),
             QuickAccessItem(
