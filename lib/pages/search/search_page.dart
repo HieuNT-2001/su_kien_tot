@@ -114,28 +114,27 @@ class _SearchPageState extends State<SearchPage> {
           ),
         ),
         body: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                SearchBar(
-                  controller: _searchController,
-                  hintText: 'Tìm kiếm dịch vụ',
-                  leading: const Icon(Icons.search),
-                  elevation: const WidgetStatePropertyAll(0),
-                  backgroundColor: WidgetStatePropertyAll(Colors.grey[200]),
+          physics: const AlwaysScrollableScrollPhysics(),
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SearchBar(
+                controller: _searchController,
+                hintText: 'Tìm kiếm dịch vụ',
+                leading: const Icon(Icons.search),
+                elevation: const WidgetStatePropertyAll(0),
+                backgroundColor: WidgetStatePropertyAll(Colors.grey[200]),
+              ),
+              const SizedBox(height: 24),
+              ..._filteredData.entries.map(
+                (item) => ServiceSection(
+                  isLoading: _isLoading,
+                  title: item.key,
+                  items: item.value,
                 ),
-                const SizedBox(height: 24),
-                ..._filteredData.entries.map(
-                  (item) => ServiceSection(
-                    isLoading: _isLoading,
-                    title: item.key,
-                    items: item.value,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),
