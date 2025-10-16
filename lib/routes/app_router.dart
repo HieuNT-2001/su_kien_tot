@@ -9,8 +9,9 @@ import 'package:su_kien_tot/pages/introduction/introduction2.dart';
 import 'package:su_kien_tot/pages/introduction/introduction3.dart';
 import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
+import 'package:su_kien_tot/pages/payment/payment_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
-import 'package:su_kien_tot/pages/search/service_page.dart';
+import 'package:su_kien_tot/widgets/service_page.dart';
 import 'package:su_kien_tot/pages/start/start.dart';
 import 'package:su_kien_tot/pages/transaction_history/transaction_page.dart';
 import 'package:su_kien_tot/widgets/floating_bar.dart';
@@ -54,6 +55,10 @@ class AppRouter {
       GoRoute(
         path: '/transaction-page',
         builder: (context, state) => const TransactionPage(),
+      ),
+      GoRoute(
+        path: '/payment-page',
+        builder: (context, state) => const PaymentPage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

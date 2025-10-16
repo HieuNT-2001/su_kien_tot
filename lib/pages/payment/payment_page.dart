@@ -3,14 +3,14 @@ import 'package:go_router/go_router.dart';
 import 'package:su_kien_tot/widgets/data_card.dart';
 import 'package:su_kien_tot/widgets/empty_item.dart';
 
-class TransactionPage extends StatefulWidget {
-  const TransactionPage({super.key});
+class PaymentPage extends StatefulWidget {
+  const PaymentPage({super.key});
 
   @override
-  TransactionPageState createState() => TransactionPageState();
+  PaymentPageState createState() => PaymentPageState();
 }
 
-class TransactionPageState extends State<TransactionPage> {
+class PaymentPageState extends State<PaymentPage> {
   bool _isLoading = true;
   List<String> _transactions = [];
 
@@ -50,23 +50,45 @@ class TransactionPageState extends State<TransactionPage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Lịch sử giao dịch',
+          'Thanh toán',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, size: 24),
-          onPressed: () => context.pop(),
+          onPressed: () => context.go('/account'),
         ),
       ),
-      body: RefreshIndicator(
-        onRefresh: _refreshData,
-        child: SingleChildScrollView(
-          physics: const AlwaysScrollableScrollPhysics(),
-          padding: const EdgeInsets.all(16),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_buildDataSection()],
-          ),
+      body: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ElevatedButton.icon(
+              onPressed: () {},
+              icon: const CircleAvatar(radius: 10, child: Icon(Icons.add)),
+              label: const Text('Thêm giao dịch'),
+              style: ElevatedButton.styleFrom(
+                minimumSize: const Size(double.infinity, 50),
+                elevation: 4,
+              ),
+            ),
+            const SizedBox(height: 16),
+            GestureDetector(
+              onTap: () => context.push('/transaction-page'),
+              child: const Row(
+                children: [
+                  Text(
+                    'Lịch sử giao dịch',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  Icon(Icons.arrow_forward_ios_rounded, size: 16),
+                ],
+              ),
+            ),
+            const SizedBox(height: 8),
+            _buildDataSection(),
+          ],
         ),
       ),
     );

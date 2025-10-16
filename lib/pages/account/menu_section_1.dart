@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:su_kien_tot/pages/account/menu.dart';
 import 'package:su_kien_tot/pages/account/menu_item.dart';
@@ -16,7 +17,7 @@ class MenuSection1 extends StatelessWidget {
         MenuItem(
           title: isCustomer ? 'Thanh toán' : 'Ví Vua Thợ',
           icon: Icons.wallet,
-          onTap: () {},
+          onTap: () => context.push('/payment-page'),
         ),
         MenuItem(
           title: isCustomer ? 'Ưu đãi của bạn' : 'Nghiệp vụ của bạn',
