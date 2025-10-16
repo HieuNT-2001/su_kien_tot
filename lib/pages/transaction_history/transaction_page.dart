@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:su_kien_tot/pages/transaction_history/select_date.dart';
 import 'package:su_kien_tot/widgets/data_card.dart';
 import 'package:su_kien_tot/widgets/empty_item.dart';
 
@@ -12,6 +13,9 @@ class TransactionPage extends StatefulWidget {
 
 class TransactionPageState extends State<TransactionPage> {
   bool _isLoading = true;
+  int selectedIndex = 0;
+  DateTime? fromDate;
+  DateTime? toDate;
   List<String> _transactions = [];
 
   Future<void> _refreshData() async {
@@ -37,6 +41,24 @@ class TransactionPageState extends State<TransactionPage> {
         );
       }),
     );
+  }
+
+  void showSelectDateBottomSheet(BuildContext context) async {
+    final result = await showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: const RoundedRectangleBorder(),
+      builder: (context) => SelectDate(selectedIndex: selectedIndex),
+    );
+
+    if (result != null) {
+      setState(() {
+        selectedIndex = result['selectedIndex'];
+        fromDate = result['fromDate'];
+        toDate = result['toDate'];
+      });
+      _refreshData(); // gọi API lọc
+    }
   }
 
   @override
@@ -65,7 +87,15 @@ class TransactionPageState extends State<TransactionPage> {
           padding: const EdgeInsets.all(16),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [_buildDataSection()],
+            children: [
+              TextButton.icon(
+                onPressed: () => showSelectDateBottomSheet(context),
+                label: const Text('Chọn thời gian'),
+                icon: const Icon(Icons.calendar_month_outlined),
+                style: TextButton.styleFrom(foregroundColor: Colors.black),
+              ),
+              _buildDataSection(),
+            ],
           ),
         ),
       ),
