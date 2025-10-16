@@ -51,10 +51,10 @@ class PaymentPageState extends State<PaymentPage> {
       appBar: AppBar(
         title: const Text(
           'Thanh toán',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_rounded, size: 24),
+          icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),
           onPressed: () => context.go('/account'),
         ),
       ),
@@ -72,7 +72,7 @@ class PaymentPageState extends State<PaymentPage> {
                 elevation: 4,
               ),
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 32),
             GestureDetector(
               onTap: () => context.push('/transaction-page'),
               child: const Row(
