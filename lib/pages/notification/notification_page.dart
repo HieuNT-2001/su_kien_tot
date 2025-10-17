@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:su_kien_tot/models/tab_item.dart';
-import 'package:su_kien_tot/widgets/data_card.dart';
 import 'package:su_kien_tot/widgets/custom_tab_bar.dart';
 import 'package:su_kien_tot/widgets/empty_item.dart';
 
@@ -40,17 +40,30 @@ class _NotificationPageState extends State<NotificationPage> {
     int length = _isLoading ? 4 : _notifications.length;
     if (length == 0) return const EmptyItem(title: 'Chưa có thông báo');
 
-    return Column(
-      children: List.generate(length, (index) {
-        return DataCard(
-          isLoading: _isLoading,
-          icon: Icons.ac_unit,
-          title: 'Vì sao cục nóng điều hòa không chạy?',
-          content:
-              'Nguyên nhân có thể đến từ tụ điện, bo mạch... lỗi nhỏ mà bạn không ngờ!',
-          timestamp: '10/10/2025',
-        );
-      }),
+    return Skeletonizer(
+      enabled: _isLoading,
+      child: Column(
+        children: List.generate(length, (index) {
+          return Card(
+            color: Colors.white,
+            child: ListTile(
+              leading: const Icon(Icons.notifications, color: Colors.blue),
+              title: Text(
+                'Thông báo ${index + 1}',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Mô tả thông báo ${index + 1}'),
+                  const SizedBox(height: 4),
+                  const Text('10/10/2025'),
+                ],
+              ),
+            ),
+          );
+        }),
+      ),
     );
   }
 

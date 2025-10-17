@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:su_kien_tot/widgets/data_card.dart';
+import 'package:skeletonizer/skeletonizer.dart';
 import 'package:su_kien_tot/widgets/empty_item.dart';
 
 class PaymentPage extends StatefulWidget {
@@ -26,16 +26,30 @@ class PaymentPageState extends State<PaymentPage> {
     int length = _isLoading ? 4 : _transactions.length;
     if (length == 0) return const EmptyItem(title: 'Chưa có giao dịch');
 
-    return Column(
-      children: List.generate(length, (index) {
-        return DataCard(
-          isLoading: _isLoading,
-          title: 'Thanh toán dịch vụ sửa chữa bồn cầu?',
-          content: 'Nguyên nhân đến từ tắc nghẽn bồn cầu!',
-          timestamp: '10/10/2025',
-          extra: '150.000đ',
-        );
-      }),
+    return Skeletonizer(
+      enabled: _isLoading,
+      child: Column(
+        children: List.generate(length, (index) {
+          return Card(
+            color: Colors.white,
+            child: ListTile(
+              title: Text(
+                'Giao dịch ${index + 1}',
+                style: const TextStyle(fontWeight: FontWeight.bold),
+              ),
+              subtitle: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text('Mô tả giao dịch ${index + 1}'),
+                  const SizedBox(height: 4),
+                  const Text('10/10/2025'),
+                ],
+              ),
+              trailing: const Text('150.000đ'),
+            ),
+          );
+        }),
+      ),
     );
   }
 
