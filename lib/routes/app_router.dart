@@ -12,6 +12,7 @@ import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
 import 'package:su_kien_tot/pages/payment/payment_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
+import 'package:su_kien_tot/pages/setting/setting_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
 import 'package:su_kien_tot/widgets/service_page.dart';
 import 'package:su_kien_tot/pages/start/start.dart';
@@ -69,6 +70,10 @@ class AppRouter {
       GoRoute(
         path: '/favorite-page',
         builder: (context, state) => const FavoritePage(),
+      ),
+      GoRoute(
+        path: '/setting-page',
+        builder: (context, state) => const SettingPage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

@@ -48,7 +48,7 @@ class _HomeUserState extends State<HomeUser> {
                   const SizedBox(height: 16),
                   ImageCard(
                     imageSrc: 'assets/images/banner.png',
-                    onTap: () => context.push('/'),
+                    onTap: () => context.push('/search-page'),
                   ),
                 ],
                 if (role == 'vendor') ...[
