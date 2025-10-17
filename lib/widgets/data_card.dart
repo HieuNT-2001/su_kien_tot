@@ -6,7 +6,7 @@ class DataCard extends StatelessWidget {
   final String title;
   final String content;
   final String? extra;
-  final String timestamp;
+  final String? timestamp;
   final bool isLoading;
 
   const DataCard({
@@ -14,7 +14,7 @@ class DataCard extends StatelessWidget {
     this.icon,
     required this.title,
     required this.content,
-    required this.timestamp,
+    this.timestamp,
     this.isLoading = false,
     this.extra,
   });
@@ -43,7 +43,7 @@ class DataCard extends StatelessWidget {
                     const SizedBox(height: 4),
                     Text(content, style: const TextStyle(color: Colors.grey)),
                     const SizedBox(height: 4),
-                    Text(timestamp),
+                    if (timestamp != null) Text(timestamp!),
                   ],
                 ),
               ),

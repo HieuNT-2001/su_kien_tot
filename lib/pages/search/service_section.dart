@@ -26,6 +26,7 @@ class ServiceSection extends StatelessWidget {
             title,
             style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
+          const SizedBox(height: 8),
           GridView.count(
             crossAxisCount: 3,
             shrinkWrap: true,

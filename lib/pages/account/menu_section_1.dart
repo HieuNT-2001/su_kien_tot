@@ -22,7 +22,7 @@ class MenuSection1 extends StatelessWidget {
         MenuItem(
           title: isCustomer ? 'Ưu đãi của bạn' : 'Nghiệp vụ của bạn',
           icon: isCustomer ? Icons.discount_outlined : Icons.work_outline,
-          onTap: () {},
+          onTap: () => context.push('/voucher-page'),
         ),
       ],
     );

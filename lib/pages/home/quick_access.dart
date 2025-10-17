@@ -27,7 +27,7 @@ class QuickAccess extends StatelessWidget {
             QuickAccessItem(
               icon: Icons.discount_outlined,
               title: 'Ưu đãi\ncủa bạn',
-              target: '/start',
+              target: '/voucher-page',
               size: 50,
             ),
             QuickAccessItem(
