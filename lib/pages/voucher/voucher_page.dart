@@ -72,7 +72,7 @@ class VoucherPageState extends State<VoucherPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: _buildDataSection(),
+        child: ListView(children: [_buildDataSection()]),
       ),
     );
   }

@@ -108,7 +108,7 @@ class PaymentPageState extends State<PaymentPage> {
               ),
             ),
             const SizedBox(height: 8),
-            _buildDataSection(),
+            Expanded(child: ListView(children: [_buildDataSection()])),
           ],
         ),
       ),

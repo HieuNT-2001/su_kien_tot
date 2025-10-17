@@ -71,7 +71,7 @@ class FavoritePageState extends State<FavoritePage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
-        child: _buildDataSection(),
+        child: ListView(children: [_buildDataSection()]),
       ),
     );
   }
