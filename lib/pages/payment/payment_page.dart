@@ -79,8 +79,15 @@ class PaymentPageState extends State<PaymentPage> {
           children: [
             ElevatedButton.icon(
               onPressed: () {},
-              icon: const CircleAvatar(radius: 10, child: Icon(Icons.add)),
-              label: const Text('Thêm giao dịch'),
+              icon: const CircleAvatar(
+                radius: 10,
+                backgroundColor: Color(0xFFF28F8F),
+                child: Icon(Icons.add),
+              ),
+              label: const Text(
+                'Liên kết',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
               style: ElevatedButton.styleFrom(
                 minimumSize: const Size(double.infinity, 50),
                 elevation: 4,
