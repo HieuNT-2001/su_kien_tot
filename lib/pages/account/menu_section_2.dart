@@ -15,7 +15,11 @@ class MenuSection2 extends StatelessWidget {
           icon: Icons.settings_outlined,
           onTap: () => context.push('/setting-page'),
         ),
-        MenuItem(title: 'Ngôn ngữ', icon: Icons.language, onTap: () {}),
+        MenuItem(
+          title: 'Ngôn ngữ',
+          icon: Icons.language,
+          onTap: () => context.push('/language-page'),
+        ),
       ],
     );
   }
