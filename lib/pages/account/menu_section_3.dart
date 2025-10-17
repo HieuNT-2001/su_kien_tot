@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:su_kien_tot/pages/account/menu.dart';
 import 'package:su_kien_tot/pages/account/menu_item.dart';
@@ -17,7 +18,7 @@ class MenuSection3 extends StatelessWidget {
           MenuItem(
             title: 'Yêu thích',
             icon: Icons.favorite_outline,
-            onTap: () {},
+            onTap: () => context.push('/favorite-page'),
           ),
         ],
         MenuItem(title: 'Hỗ trợ', icon: Icons.support_agent, onTap: () {}),

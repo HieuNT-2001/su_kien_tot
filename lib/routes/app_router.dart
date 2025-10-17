@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:su_kien_tot/pages/account/account_page.dart';
 import 'package:su_kien_tot/pages/activity/activity_page.dart';
+import 'package:su_kien_tot/pages/favorite/favorite_page.dart';
 import 'package:su_kien_tot/pages/home/home_guest.dart';
 import 'package:su_kien_tot/pages/home/home_user.dart';
 import 'package:su_kien_tot/pages/introduction/introduction1.dart';
@@ -64,6 +65,10 @@ class AppRouter {
       GoRoute(
         path: '/voucher-page',
         builder: (context, state) => const VoucherPage(),
+      ),
+      GoRoute(
+        path: '/favorite-page',
+        builder: (context, state) => const FavoritePage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

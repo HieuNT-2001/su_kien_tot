@@ -39,7 +39,7 @@ class QuickAccess extends StatelessWidget {
             QuickAccessItem(
               icon: Icons.star_border_rounded,
               title: 'Yêu thích',
-              target: '/start',
+              target: '/favorite-page',
               size: 50,
             ),
           ],
