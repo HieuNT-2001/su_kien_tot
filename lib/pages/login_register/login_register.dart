@@ -13,7 +13,7 @@ class LoginRegister extends StatefulWidget {
 }
 
 class _LoginRegisterState extends State<LoginRegister> {
-  final Uri _url = Uri.parse('https://vuatho.com/vi/terms-and-condition');
+  final Uri _url = Uri.parse('https://sukientot.taiyo.space/');
   final _phoneController = TextEditingController();
   bool isEnabled = false;
 

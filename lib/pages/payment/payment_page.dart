@@ -78,7 +78,7 @@ class PaymentPageState extends State<PaymentPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             ElevatedButton.icon(
-              onPressed: () {},
+              onPressed: () => context.push('/link-account-page'),
               icon: const CircleAvatar(
                 radius: 10,
                 backgroundColor: Color(0xFFF28F8F),
