@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:su_kien_tot/pages/account/account_page.dart';
 import 'package:su_kien_tot/pages/activity/activity_page.dart';
+import 'package:su_kien_tot/pages/chat/chat_page.dart';
 import 'package:su_kien_tot/pages/favorite/favorite_page.dart';
 import 'package:su_kien_tot/pages/guide/guide_page.dart';
 import 'package:su_kien_tot/pages/help/help_page.dart';
@@ -100,13 +101,23 @@ class AppRouter {
         path: '/guide-page',
         builder: (context, state) => const GuidePage(),
       ),
+      GoRoute(
+        path: '/chat-page',
+        builder: (context, state) => const ChatPage(),
+      ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(
             body: navigationShell,
             floatingActionButton: FloatingBar(
               currentIndex: navigationShell.currentIndex,
-              onTap: (index) => navigationShell.goBranch(index),
+              onTap: (index) {
+                if (index == 2) {
+                  context.push('/chat-page');
+                } else {
+                  navigationShell.goBranch(index);
+                }
+              },
             ),
             floatingActionButtonLocation:
                 FloatingActionButtonLocation.centerDocked,
@@ -132,8 +143,8 @@ class AppRouter {
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: '/start',
-                builder: (context, state) => const Start(),
+                path: '/chat-page',
+                builder: (context, state) => const ChatPage(),
               ),
             ],
           ),

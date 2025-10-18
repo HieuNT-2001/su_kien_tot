@@ -27,10 +27,14 @@ class _LoginRegisterState extends State<LoginRegister> {
   void initState() {
     super.initState();
     _phoneController.addListener(() {
-      setState(() {
-        isEnabled = _phoneController.text.isNotEmpty;
-      });
+      setState(() => isEnabled = _phoneController.text.isNotEmpty);
     });
+  }
+
+  @override
+  void dispose() {
+    _phoneController.dispose();
+    super.dispose();
   }
 
   @override
