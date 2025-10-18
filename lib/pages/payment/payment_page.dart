@@ -65,7 +65,7 @@ class PaymentPageState extends State<PaymentPage> {
       appBar: AppBar(
         title: const Text(
           'Thanh toán',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),

@@ -88,8 +88,8 @@ class LanguagePageState extends State<LanguagePage> {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Tìm kiếm',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          'Ngôn ngữ',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.keyboard_arrow_down_rounded, size: 32),

@@ -12,7 +12,7 @@ class LinkAccountPage extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           'Liên kết tài khoản',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),

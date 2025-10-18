@@ -90,7 +90,7 @@ class TransactionPageState extends State<TransactionPage> {
       appBar: AppBar(
         title: const Text(
           'Lịch sử giao dịch',
-          style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),
