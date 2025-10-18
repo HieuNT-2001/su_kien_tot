@@ -29,7 +29,11 @@ class MenuSection3 extends StatelessWidget {
             onTap: () => context.push('/favorite-page'),
           ),
         ],
-        MenuItem(title: 'Hỗ trợ', icon: Icons.support_agent, onTap: () {}),
+        MenuItem(
+          title: 'Hỗ trợ',
+          icon: Icons.support_agent,
+          onTap: () => context.push('/help-page'),
+        ),
         MenuItem(
           title: 'Điều khoản & quyền riêng tư',
           icon: Icons.article_outlined,
