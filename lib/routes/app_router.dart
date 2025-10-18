@@ -14,6 +14,7 @@ import 'package:su_kien_tot/pages/link_account/link_account_page.dart';
 import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
 import 'package:su_kien_tot/pages/payment/payment_page.dart';
+import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/setting/setting_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
@@ -89,6 +90,10 @@ class AppRouter {
       GoRoute(
         path: '/help-page',
         builder: (context, state) => const HelpPage(),
+      ),
+      GoRoute(
+        path: '/profile-page',
+        builder: (context, state) => const ProfilePage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
