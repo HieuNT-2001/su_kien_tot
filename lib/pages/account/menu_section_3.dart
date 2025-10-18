@@ -4,9 +4,17 @@ import 'package:provider/provider.dart';
 import 'package:su_kien_tot/pages/account/menu.dart';
 import 'package:su_kien_tot/pages/account/menu_item.dart';
 import 'package:su_kien_tot/providers/app_state.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class MenuSection3 extends StatelessWidget {
   const MenuSection3({super.key});
+
+  Future<void> _launchUrl() async {
+    final Uri url = Uri.parse('https://sukientot.taiyo.space/');
+    if (!await launchUrl(url, mode: LaunchMode.inAppWebView)) {
+      throw Exception('Không mở được $url');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,13 +33,17 @@ class MenuSection3 extends StatelessWidget {
         MenuItem(
           title: 'Điều khoản & quyền riêng tư',
           icon: Icons.article_outlined,
-          onTap: () {},
+          onTap: () => _launchUrl(),
         ),
-        MenuItem(title: 'Về chúng tôi', icon: Icons.info_outline, onTap: () {}),
+        MenuItem(
+          title: 'Về chúng tôi',
+          icon: Icons.info_outline,
+          onTap: () => _launchUrl(),
+        ),
         MenuItem(
           title: 'Những câu hỏi thường gặp (FAQ)',
           icon: Icons.live_help_outlined,
-          onTap: () {},
+          onTap: () => _launchUrl(),
         ),
       ],
     );
