@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class VerifySection extends StatelessWidget {
   final bool isVerified;
@@ -31,7 +32,7 @@ class VerifySection extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ElevatedButton.icon(
-            onPressed: () {},
+            onPressed: () => context.push('/guide-page'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: const Color(0xFFF28F8F),
