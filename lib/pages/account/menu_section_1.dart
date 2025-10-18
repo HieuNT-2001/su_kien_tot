@@ -17,12 +17,12 @@ class MenuSection1 extends StatelessWidget {
         MenuItem(
           title: isCustomer ? 'Thanh toán' : 'Ví Vua Thợ',
           icon: Icons.wallet,
-          onTap: () => context.push('/payment-page'),
+          onTap: () => context.push(isCustomer ? '/payment-page' : '/'),
         ),
         MenuItem(
           title: isCustomer ? 'Ưu đãi của bạn' : 'Nghiệp vụ của bạn',
           icon: isCustomer ? Icons.discount_outlined : Icons.work_outline,
-          onTap: () => context.push('/voucher-page'),
+          onTap: () => context.push(isCustomer ? '/voucher-page' : '/'),
         ),
       ],
     );
