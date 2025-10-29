@@ -17,7 +17,8 @@ class MenuSection1 extends StatelessWidget {
         MenuItem(
           title: isCustomer ? 'Thanh toán' : 'Ví Vua Thợ',
           icon: Icons.wallet,
-          onTap: () => context.push(isCustomer ? '/payment-page' : '/'),
+          onTap: () =>
+              context.push(isCustomer ? '/payment-page' : '/wallet-page'),
         ),
         MenuItem(
           title: isCustomer ? 'Ưu đãi của bạn' : 'Nghiệp vụ của bạn',
