@@ -7,38 +7,6 @@ import 'package:su_kien_tot/providers/app_state.dart';
 class WalletPage extends StatelessWidget {
   const WalletPage({super.key});
 
-  Widget _buildWalletCard({
-    required String title,
-    required Color color,
-    required String balance,
-    required VoidCallback action,
-    required bool showBalance,
-  }) {
-    return Stack(
-      children: [
-        WalletCard(
-          title: title,
-          color: color,
-          balance: balance,
-          action: action,
-          showBalance: showBalance,
-        ),
-        Positioned(
-          right: 8,
-          top: 8,
-          child: CircleAvatar(
-            backgroundColor: color,
-            child: const Icon(
-              Icons.arrow_outward,
-              color: Colors.white,
-              size: 32,
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     bool showRevenue = context.watch<AppState>().isRevenueVisible;
@@ -61,25 +29,59 @@ class WalletPage extends StatelessWidget {
           children: [
             GestureDetector(
               onTap: () => context.push('/revenue-wallet'),
-              child: _buildWalletCard(
-                title: 'Ví doanh thu',
-                color: Colors.blue,
-                balance: '0 đ',
-                action: () =>
-                    context.read<AppState>().setRevenueVisible(!showRevenue),
-                showBalance: context.read<AppState>().isRevenueVisible,
+              child: Stack(
+                children: [
+                  WalletCard(
+                    title: 'Ví doanh thu',
+                    color: Colors.blue,
+                    balance: '0 đ',
+                    action: () => context.read<AppState>().setRevenueVisible(
+                      !showRevenue,
+                    ),
+                    showBalance: context.read<AppState>().isRevenueVisible,
+                  ),
+                  const Positioned(
+                    right: 8,
+                    top: 8,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.blue,
+                      child: Icon(
+                        Icons.arrow_outward,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(height: 20),
             GestureDetector(
               onTap: () => context.push('/expense-wallet'),
-              child: _buildWalletCard(
-                title: 'Ví chi phí',
-                color: Colors.green,
-                balance: '0 đ',
-                action: () =>
-                    context.read<AppState>().setExpenseVisible(!showExpense),
-                showBalance: context.read<AppState>().isExpenseVisible,
+              child: Stack(
+                children: [
+                  WalletCard(
+                    title: 'Ví chi phí',
+                    color: Colors.green,
+                    balance: '0 đ',
+                    action: () => context.read<AppState>().setExpenseVisible(
+                      !showExpense,
+                    ),
+                    showBalance: context.read<AppState>().isExpenseVisible,
+                  ),
+                  const Positioned(
+                    right: 8,
+                    top: 8,
+                    child: CircleAvatar(
+                      backgroundColor: Colors.green,
+                      child: Icon(
+                        Icons.arrow_outward,
+                        color: Colors.white,
+                        size: 32,
+                      ),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
