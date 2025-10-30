@@ -5,6 +5,26 @@ import 'package:su_kien_tot/pages/wallet/wallet_card.dart';
 class WalletPage extends StatelessWidget {
   const WalletPage({super.key});
 
+  Widget _buildWalletCard(String title, Color color, String balance) {
+    return Stack(
+      children: [
+        WalletCard(title: title, color: color, balance: balance),
+        Positioned(
+          right: 8,
+          top: 8,
+          child: CircleAvatar(
+            backgroundColor: color,
+            child: const Icon(
+              Icons.arrow_outward,
+              color: Colors.white,
+              size: 32,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -22,18 +42,14 @@ class WalletPage extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Column(
           children: [
-            WalletCard(
-              title: 'Ví doanh thu',
-              color: Colors.blue,
-              balance: '0 đ',
-              action: () => context.push('/'),
+            GestureDetector(
+              onTap: () => context.push('/revenue-wallet'),
+              child: _buildWalletCard('Ví doanh thu', Colors.blue, '0 đ'),
             ),
             const SizedBox(height: 20),
-            WalletCard(
-              title: 'Ví chi phí',
-              color: Colors.green,
-              balance: '0 đ',
-              action: () => context.push('/'),
+            GestureDetector(
+              onTap: () => context.push('/expense-wallet'),
+              child: _buildWalletCard('Ví chi phí', Colors.green, '0 đ'),
             ),
           ],
         ),

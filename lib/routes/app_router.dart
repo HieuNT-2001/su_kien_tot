@@ -20,6 +20,8 @@ import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/setting/setting_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
+import 'package:su_kien_tot/pages/wallet/expense_wallet.dart';
+import 'package:su_kien_tot/pages/wallet/revenue_wallet.dart';
 import 'package:su_kien_tot/pages/wallet/wallet_page.dart';
 import 'package:su_kien_tot/widgets/service_page.dart';
 import 'package:su_kien_tot/pages/start/start.dart';
@@ -109,6 +111,14 @@ class AppRouter {
       GoRoute(
         path: '/wallet-page',
         builder: (context, state) => const WalletPage(),
+      ),
+      GoRoute(
+        path: '/revenue-wallet',
+        builder: (context, state) => const RevenueWallet(),
+      ),
+      GoRoute(
+        path: '/expense-wallet',
+        builder: (context, state) => const ExpenseWallet(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
