@@ -4,12 +4,16 @@ class WalletCard extends StatelessWidget {
   final String title;
   final Color color;
   final String balance;
+  final VoidCallback action;
+  final bool showBalance;
 
   const WalletCard({
     super.key,
     required this.title,
     required this.color,
     required this.balance,
+    required this.action,
+    this.showBalance = true,
   });
 
   @override
@@ -38,7 +42,7 @@ class WalletCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               Text(
-                balance,
+                showBalance ? balance : '*******',
                 style: const TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -46,7 +50,13 @@ class WalletCard extends StatelessWidget {
                 ),
               ),
               const SizedBox(width: 8),
-              const Icon(Icons.remove_red_eye_outlined, color: Colors.white),
+              GestureDetector(
+                onTap: action,
+                child: const Icon(
+                  Icons.remove_red_eye_outlined,
+                  color: Colors.white,
+                ),
+              ),
             ],
           ),
         ],

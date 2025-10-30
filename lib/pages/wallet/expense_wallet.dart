@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
 import 'package:su_kien_tot/pages/wallet/wallet_card.dart';
+import 'package:su_kien_tot/providers/app_state.dart';
 import 'package:su_kien_tot/widgets/transaction_history_section.dart';
 
 class ExpenseWallet extends StatelessWidget {
@@ -8,6 +10,8 @@ class ExpenseWallet extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool showExpense = context.watch<AppState>().isExpenseVisible;
+
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -16,10 +20,14 @@ class ExpenseWallet extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  const WalletCard(
+                  WalletCard(
                     title: 'Ví chi phí',
                     color: Colors.green,
                     balance: '0 đ',
+                    action: () => context.read<AppState>().setExpenseVisible(
+                      !showExpense,
+                    ),
+                    showBalance: context.read<AppState>().isExpenseVisible,
                   ),
                   Positioned(
                     left: 16,
