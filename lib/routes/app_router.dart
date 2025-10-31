@@ -19,6 +19,7 @@ import 'package:su_kien_tot/pages/payment/payment_page.dart';
 import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/setting/setting_page.dart';
+import 'package:su_kien_tot/pages/verify/verify_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
 import 'package:su_kien_tot/pages/wallet/expense_wallet.dart';
 import 'package:su_kien_tot/pages/wallet/revenue_wallet.dart';
@@ -119,6 +120,10 @@ class AppRouter {
       GoRoute(
         path: '/expense-wallet',
         builder: (context, state) => const ExpenseWallet(),
+      ),
+      GoRoute(
+        path: '/verify-page',
+        builder: (context, state) => const VerifyPage(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {

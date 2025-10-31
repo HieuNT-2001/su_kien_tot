@@ -29,7 +29,7 @@ class GuidePage extends StatelessWidget {
             const Step2(),
             const Spacer(),
             ElevatedButton(
-              onPressed: () => context.push('/'),
+              onPressed: () => context.push('/verify-page'),
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.black,
                 backgroundColor: const Color(0xFFF28F8F),
