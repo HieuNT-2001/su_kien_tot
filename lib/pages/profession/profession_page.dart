@@ -24,7 +24,7 @@ class ProfessionPageState extends State<ProfessionPage> {
   Future<void> _refreshData() async {
     setState(() => _isLoading = true);
     await Future.delayed(const Duration(seconds: 2)); // giả lập call API
-    _professions = ["nghiệp vụ 1", "nghiệp vụ 1", "nghiệp vụ 1"];
+    _professions = [];
     // bạn có thể thử: ["nghiệp vụ 1", "nghiệp vụ 2"]
     setState(() => _isLoading = false);
   }
