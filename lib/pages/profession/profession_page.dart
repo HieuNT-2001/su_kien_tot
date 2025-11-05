@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:skeletonizer/skeletonizer.dart';
-import 'package:su_kien_tot/pages/profession/profession_header.dart';
 import 'package:su_kien_tot/widgets/empty_item.dart';
 
 class ProfessionPage extends StatefulWidget {
@@ -40,10 +39,7 @@ class ProfessionPageState extends State<ProfessionPage> {
           return Card(
             color: Colors.white,
             child: ListTile(
-              title: Text(
-                'Nghiệp vụ ${index + 1}',
-                style: const TextStyle(fontWeight: FontWeight.bold),
-              ),
+              title: Text('Nghiệp vụ ${index + 1}', style: const TextStyle(fontWeight: FontWeight.bold)),
               subtitle: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [Text('Mô tả Nghiệp vụ ${index + 1}')],
@@ -59,14 +55,8 @@ class ProfessionPageState extends State<ProfessionPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Nghiệp vụ',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),
-          onPressed: () => context.pop(),
-        ),
+        title: const Text('Nghiệp vụ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        leading: IconButton(icon: const Icon(Icons.arrow_back_ios_rounded, size: 20), onPressed: () => context.pop()),
       ),
       body: RefreshIndicator(
         onRefresh: _refreshData,
@@ -78,13 +68,30 @@ class ProfessionPageState extends State<ProfessionPage> {
             children: [
               Skeletonizer(
                 enabled: _isLoading,
-                child: const ProfessionHeader(),
+                child: Card(
+                  color: Colors.white,
+                  child: Padding(
+                    padding: const EdgeInsets.all(16),
+                    child: Row(
+                      children: [
+                        const Text('Thêm nghiệp vụ mới', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+                        const Spacer(),
+                        ElevatedButton.icon(
+                          onPressed: () {},
+                          label: const Text('Thêm', style: TextStyle(fontWeight: FontWeight.bold)),
+                          icon: const Icon(Icons.add),
+                          style: ElevatedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
               const SizedBox(height: 16),
-              const Text(
-                'Nghiệp vụ của bạn',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-              ),
+              const Text('Nghiệp vụ của bạn', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               _buildDataSection(),
             ],
           ),
