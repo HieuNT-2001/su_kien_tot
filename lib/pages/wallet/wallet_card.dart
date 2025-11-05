@@ -21,21 +21,14 @@ class WalletCard extends StatelessWidget {
     return Container(
       height: 200,
       width: double.infinity,
-      decoration: BoxDecoration(
-        color: color,
-        borderRadius: BorderRadius.circular(28),
-      ),
+      decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(28)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
             title,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-              fontWeight: FontWeight.bold,
-            ),
+            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
           ),
           const SizedBox(height: 16),
           Row(
@@ -43,17 +36,13 @@ class WalletCard extends StatelessWidget {
             children: [
               Text(
                 showBalance ? balance : '*******',
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: const TextStyle(color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
               ),
               const SizedBox(width: 8),
               GestureDetector(
                 onTap: action,
-                child: const Icon(
-                  Icons.remove_red_eye_outlined,
+                child: Icon(
+                  showBalance ? Icons.visibility_outlined : Icons.visibility_off_outlined,
                   color: Colors.white,
                 ),
               ),
