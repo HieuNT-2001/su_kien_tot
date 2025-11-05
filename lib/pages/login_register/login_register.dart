@@ -83,9 +83,7 @@ class _LoginRegisterState extends State<LoginRegister> {
                     controller: _phoneController,
                     // obscureText: true,
                     decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10),
-                      ),
+                      border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
                       labelText: 'Số điện thoại',
                     ),
                   ),
@@ -98,9 +96,7 @@ class _LoginRegisterState extends State<LoginRegister> {
               text: TextSpan(
                 style: const TextStyle(fontSize: 16, color: Colors.black),
                 children: [
-                  const TextSpan(
-                    text: 'Thông qua việc tiếp tục, bạn đã chấp nhận ',
-                  ),
+                  const TextSpan(text: 'Thông qua việc tiếp tục, bạn đã chấp nhận '),
                   TextSpan(
                     text: 'điều khoản & chính sách',
                     style: const TextStyle(
@@ -116,17 +112,14 @@ class _LoginRegisterState extends State<LoginRegister> {
             ),
             const SizedBox(height: 16),
             ElevatedButton(
-              onPressed: isEnabled ? () => context.go('/home-user') : null,
+              onPressed: isEnabled ? () => context.push('/otp-confirm') : null,
               style: OutlinedButton.styleFrom(
                 foregroundColor: Colors.black,
                 backgroundColor: const Color(0xFFF28F8F),
                 minimumSize: const Size(double.infinity, 50),
                 disabledBackgroundColor: Colors.grey,
               ),
-              child: const Text(
-                'Đăng nhập',
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-              ),
+              child: const Text('Tiếp tục', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
             ),
           ],
         ),

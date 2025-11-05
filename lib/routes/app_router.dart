@@ -16,6 +16,7 @@ import 'package:su_kien_tot/pages/language/language_page.dart';
 import 'package:su_kien_tot/pages/link_account/link_account_page.dart';
 import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
+import 'package:su_kien_tot/pages/otp_confirn/otp_confirm.dart';
 import 'package:su_kien_tot/pages/payment/payment_page.dart';
 import 'package:su_kien_tot/pages/profession/Profession_page.dart';
 import 'package:su_kien_tot/pages/profile/profile_page.dart';
@@ -41,6 +42,7 @@ class AppRouter {
       GoRoute(path: '/introduction3', builder: (context, state) => const Introduction3()),
       GoRoute(path: '/home-guest', builder: (context, state) => const HomeGuest()),
       GoRoute(path: '/login-register', builder: (context, state) => const LoginRegister()),
+      GoRoute(path: '/otp-confirm', builder: (context, state) => const OtpConfirm()),
       GoRoute(path: '/search-page', builder: (context, state) => const SearchPage()),
       GoRoute(
         path: '/service-page',
