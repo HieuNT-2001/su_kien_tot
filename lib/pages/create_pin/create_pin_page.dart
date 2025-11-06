@@ -16,29 +16,27 @@ class CreatePinPageState extends State<CreatePinPage> {
   final _pinController = TextEditingController();
 
   void _onPinCompleted(String pin) {
+    // Bước 1: nhập PIN lần đầu
     if (!_isConfirmStep) {
-      // Bước 1: nhập PIN lần đầu
       _pin = pin;
       setState(() {
         _isConfirmStep = true;
         _pinController.clear(); // reset lại ô nhập
       });
+      return;
+    }
+
+    // Bước 2: xác nhận lại PIN
+    if (pin == _pin) {
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tạo mã PIN thành công!')));
+      context.pop();
     } else {
-      // Bước 2: xác nhận lại PIN
-      if (pin == _pin) {
-        // ✅ PIN khớp
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Tạo mã PIN thành công!')));
-      } else {
-        // ❌ PIN không khớp
-        ScaffoldMessenger.of(
-          context,
-        ).showSnackBar(const SnackBar(content: Text('Mã PIN không khớp, vui lòng thử lại!')));
-        setState(() {
-          _isConfirmStep = false;
-          _pin = null;
-          _pinController.clear(); // reset lại để nhập lại từ đầu
-        });
-      }
+      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Mã PIN không khớp, vui lòng thử lại!')));
+      setState(() {
+        _isConfirmStep = false;
+        _pin = null;
+        _pinController.clear(); // reset lại để nhập lại từ đầu
+      });
     }
   }
 
