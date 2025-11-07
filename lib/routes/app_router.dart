@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:su_kien_tot/pages/account/account_page.dart';
 import 'package:su_kien_tot/pages/activity/activity_page.dart';
+import 'package:su_kien_tot/pages/add_friend/add_friend_page.dart';
 import 'package:su_kien_tot/pages/chat/chat_page.dart';
 import 'package:su_kien_tot/pages/create_pin/create_pin_page.dart';
 import 'package:su_kien_tot/pages/favorite/favorite_page.dart';
@@ -68,6 +69,7 @@ class AppRouter {
       GoRoute(path: '/verify-page', builder: (context, state) => const VerifyPage()),
       GoRoute(path: '/profession-page', builder: (context, state) => const ProfessionPage()),
       GoRoute(path: '/create-pin-page', builder: (context, state) => const CreatePinPage()),
+      GoRoute(path: '/add-friend-page', builder: (context, state) => AddFriendPage()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(

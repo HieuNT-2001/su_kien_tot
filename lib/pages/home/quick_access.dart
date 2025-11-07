@@ -9,10 +9,7 @@ class QuickAccess extends StatelessWidget {
     return const Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          'Truy cập nhanh',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
+        Text('Truy cập nhanh', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
         SizedBox(height: 8),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -24,24 +21,14 @@ class QuickAccess extends StatelessWidget {
               target: '/transaction-page',
               size: 50,
             ),
-            QuickAccessItem(
-              icon: Icons.discount_outlined,
-              title: 'Ưu đãi\ncủa bạn',
-              target: '/voucher-page',
-              size: 50,
-            ),
+            QuickAccessItem(icon: Icons.discount_outlined, title: 'Ưu đãi\ncủa bạn', target: '/voucher-page', size: 50),
             QuickAccessItem(
               icon: Icons.person_add_alt_outlined,
               title: 'Mời bạn bè',
-              target: '/start',
+              target: '/add-friend-page',
               size: 50,
             ),
-            QuickAccessItem(
-              icon: Icons.star_border_rounded,
-              title: 'Yêu thích',
-              target: '/favorite-page',
-              size: 50,
-            ),
+            QuickAccessItem(icon: Icons.star_border_rounded, title: 'Yêu thích', target: '/favorite-page', size: 50),
           ],
         ),
       ],
