@@ -88,7 +88,7 @@ class InvitedFriendsState extends State<InvitedFriends> {
           TabBar(
             onTap: (value) => refreshData(),
             tabs: const [
-              Tab(text: 'Thợ (0)'),
+              Tab(text: 'Người làm sự kiện (0)'),
               Tab(text: 'Khách hàng (0)'),
             ],
             dividerHeight: 0,
