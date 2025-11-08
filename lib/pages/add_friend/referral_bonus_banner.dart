@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:su_kien_tot/pages/add_friend/share_model.dart';
 
 class ReferralBonusBanner extends StatelessWidget {
   const ReferralBonusBanner({super.key});
@@ -40,7 +41,7 @@ class ReferralBonusBanner extends StatelessWidget {
               const Text('89533', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               const SizedBox(height: 8),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: () => showDialog(context: context, builder: (context) => const ShareModel()),
                 style: ElevatedButton.styleFrom(
                   shape: RoundedRectangleBorder(borderRadius: BorderRadiusGeometry.circular(10)),
                   minimumSize: const Size(50, 50),
