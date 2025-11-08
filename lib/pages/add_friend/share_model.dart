@@ -93,6 +93,7 @@ class _ShareModelState extends State<ShareModel> {
               children: [
                 CircleAvatar(
                   radius: 15,
+                  backgroundColor: Color(0xFFF28F8F),
                   child: Text('1', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(width: 8),
@@ -104,6 +105,7 @@ class _ShareModelState extends State<ShareModel> {
               children: [
                 CircleAvatar(
                   radius: 15,
+                  backgroundColor: Color(0xFFF28F8F),
                   child: Text('2', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(width: 8),
@@ -115,6 +117,7 @@ class _ShareModelState extends State<ShareModel> {
               children: [
                 CircleAvatar(
                   radius: 15,
+                  backgroundColor: Color(0xFFF28F8F),
                   child: Text('3', style: TextStyle(fontWeight: FontWeight.bold)),
                 ),
                 SizedBox(width: 8),
@@ -127,13 +130,21 @@ class _ShareModelState extends State<ShareModel> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: () => share(context),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: const Color(0xFFF28F8F),
+                      foregroundColor: Colors.black,
+                    ),
                     child: const Text('Chia sẻ', style: TextStyle(fontWeight: FontWeight.bold)),
                   ),
                 ),
                 const SizedBox(width: 16),
                 InkWell(
                   onTap: () => _saveQrToGallery(qrKey),
-                  child: const CircleAvatar(child: Icon(Icons.download_rounded)),
+                  child: const CircleAvatar(
+                    backgroundColor: Color(0xFFF28F8F),
+                    foregroundColor: Colors.black,
+                    child: Icon(Icons.download_rounded),
+                  ),
                 ),
               ],
             ),
