@@ -23,6 +23,7 @@ import 'package:su_kien_tot/pages/profession/Profession_page.dart';
 import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/setting/setting_page.dart';
+import 'package:su_kien_tot/pages/ticket/ticket_page.dart';
 import 'package:su_kien_tot/pages/verify/verify_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
 import 'package:su_kien_tot/pages/wallet/expense_wallet.dart';
@@ -70,6 +71,7 @@ class AppRouter {
       GoRoute(path: '/profession-page', builder: (context, state) => const ProfessionPage()),
       GoRoute(path: '/create-pin-page', builder: (context, state) => const CreatePinPage()),
       GoRoute(path: '/add-friend-page', builder: (context, state) => AddFriendPage()),
+      GoRoute(path: '/ticket-page', builder: (context, state) => const TicketPage()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(

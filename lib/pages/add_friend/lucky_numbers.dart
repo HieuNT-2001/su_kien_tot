@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LuckyNumbers extends StatelessWidget {
   const LuckyNumbers({super.key});
@@ -53,7 +54,7 @@ class LuckyNumbers extends StatelessWidget {
         ),
         const SizedBox(height: 8),
         ElevatedButton.icon(
-          onPressed: () {},
+          onPressed: () => context.push('/ticket-page'),
           label: const Text('Xem chi tiết', style: TextStyle(fontWeight: FontWeight.normal)),
           icon: const Icon(Icons.arrow_forward_ios_rounded, size: 14, fontWeight: FontWeight.normal),
           iconAlignment: IconAlignment.end,
