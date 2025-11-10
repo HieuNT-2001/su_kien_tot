@@ -1,7 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:su_kien_tot/pages/verify/back_alert_dialog.dart';
+import 'package:su_kien_tot/pages/verification/back_alert_dialog.dart';
 
 class ImagePreview extends StatelessWidget {
   final String title;

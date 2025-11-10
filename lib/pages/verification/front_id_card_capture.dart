@@ -1,4 +1,4 @@
-import 'package:su_kien_tot/pages/verify/back_alert_dialog.dart';
+import 'package:su_kien_tot/pages/verification/back_alert_dialog.dart';
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

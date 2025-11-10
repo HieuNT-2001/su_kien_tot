@@ -6,14 +6,14 @@ import 'package:su_kien_tot/models/language_option.dart';
 import 'package:su_kien_tot/utils/flag_utils.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class VerifyPage extends StatefulWidget {
-  const VerifyPage({super.key});
+class VerificationPage extends StatefulWidget {
+  const VerificationPage({super.key});
 
   @override
-  State<VerifyPage> createState() => _VerifyPageState();
+  State<VerificationPage> createState() => _VerifyPageState();
 }
 
-class _VerifyPageState extends State<VerifyPage> {
+class _VerifyPageState extends State<VerificationPage> {
   final List<LanguageOption> allLanguages = [LanguageOption('Tiếng Việt', 'VN')];
 
   Future<void> _launchUrl() async {

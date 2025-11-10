@@ -1,8 +1,8 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:su_kien_tot/pages/verify/back_alert_dialog.dart';
-import 'package:su_kien_tot/pages/verify/confirm_image_dialog.dart';
+import 'package:su_kien_tot/pages/verification/back_alert_dialog.dart';
+import 'package:su_kien_tot/pages/verification/confirm_dialog.dart';
 
 class FaceIdCapture extends StatefulWidget {
   const FaceIdCapture({super.key});
@@ -41,7 +41,7 @@ class FaceIdCaptureState extends State<FaceIdCapture> {
         extra: {
           'title': 'Xác thực khuôn mặt',
           'imagePath': image.path,
-          'next': () => showDialog(context: context, builder: (context) => const ConfirmImageDialog()),
+          'next': () => showDialog(context: context, builder: (context) => const ConfirmDialog()),
           'isConfirm': true,
         },
       );

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-class FinishConfirm extends StatelessWidget {
-  const FinishConfirm({super.key});
+class VerificationComplete extends StatelessWidget {
+  const VerificationComplete({super.key});
 
   @override
   Widget build(BuildContext context) {

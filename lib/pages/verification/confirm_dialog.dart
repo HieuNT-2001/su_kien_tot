@@ -3,8 +3,8 @@ import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:su_kien_tot/providers/app_state.dart';
 
-class ConfirmImageDialog extends StatelessWidget {
-  const ConfirmImageDialog({super.key});
+class ConfirmDialog extends StatelessWidget {
+  const ConfirmDialog({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class ConfirmImageDialog extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () {
                       context.read<AppState>().setAccountStatus('pending');
-                      context.go('/finish-confirm');
+                      context.go('/verification-complete');
                     },
                     style: ElevatedButton.styleFrom(
                       foregroundColor: Colors.black,

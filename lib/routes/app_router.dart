@@ -10,11 +10,11 @@ import 'package:su_kien_tot/pages/guide/guide_page.dart';
 import 'package:su_kien_tot/pages/help/help_page.dart';
 import 'package:su_kien_tot/pages/home/home_guest.dart';
 import 'package:su_kien_tot/pages/home/home_user.dart';
-import 'package:su_kien_tot/pages/verify/back_id_card_capture.dart';
-import 'package:su_kien_tot/pages/verify/face_id_capture.dart';
-import 'package:su_kien_tot/pages/verify/finish_confirm.dart';
-import 'package:su_kien_tot/pages/verify/front_id_card_capture.dart';
-import 'package:su_kien_tot/pages/verify/image_preview.dart';
+import 'package:su_kien_tot/pages/verification/back_id_card_capture.dart';
+import 'package:su_kien_tot/pages/verification/face_id_capture.dart';
+import 'package:su_kien_tot/pages/verification/verification_complete.dart';
+import 'package:su_kien_tot/pages/verification/front_id_card_capture.dart';
+import 'package:su_kien_tot/pages/verification/image_preview.dart';
 import 'package:su_kien_tot/pages/introduction/introduction1.dart';
 import 'package:su_kien_tot/pages/introduction/introduction2.dart';
 import 'package:su_kien_tot/pages/introduction/introduction3.dart';
@@ -30,7 +30,7 @@ import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
 import 'package:su_kien_tot/pages/setting/setting_page.dart';
 import 'package:su_kien_tot/pages/ticket/ticket_page.dart';
-import 'package:su_kien_tot/pages/verify/verify_page.dart';
+import 'package:su_kien_tot/pages/verification/verification_page.dart';
 import 'package:su_kien_tot/pages/voucher/voucher_page.dart';
 import 'package:su_kien_tot/pages/wallet/expense_wallet.dart';
 import 'package:su_kien_tot/pages/wallet/revenue_wallet.dart';
@@ -73,15 +73,15 @@ class AppRouter {
       GoRoute(path: '/wallet-page', builder: (context, state) => const WalletPage()),
       GoRoute(path: '/revenue-wallet', builder: (context, state) => const RevenueWallet()),
       GoRoute(path: '/expense-wallet', builder: (context, state) => const ExpenseWallet()),
-      GoRoute(path: '/verify-page', builder: (context, state) => const VerifyPage()),
       GoRoute(path: '/profession-page', builder: (context, state) => const ProfessionPage()),
       GoRoute(path: '/create-pin-page', builder: (context, state) => const CreatePinPage()),
       GoRoute(path: '/add-friend-page', builder: (context, state) => AddFriendPage()),
       GoRoute(path: '/ticket-page', builder: (context, state) => const TicketPage()),
+      GoRoute(path: '/verification-page', builder: (context, state) => const VerificationPage()),
       GoRoute(path: '/front-id-card-capture', builder: (context, state) => const FrontIdCardCapture()),
       GoRoute(path: '/back-id-card-capture', builder: (context, state) => const BackIdCardCapture()),
       GoRoute(path: '/face-id-capture', builder: (context, state) => const FaceIdCapture()),
-      GoRoute(path: '/finish-confirm', builder: (context, state) => const FinishConfirm()),
+      GoRoute(path: '/verification-complete', builder: (context, state) => const VerificationComplete()),
       GoRoute(path: '/pending-page', builder: (context, state) => const PendingPage()),
       GoRoute(
         path: '/id-card-preview',
