@@ -10,10 +10,9 @@ import 'package:su_kien_tot/pages/guide/guide_page.dart';
 import 'package:su_kien_tot/pages/help/help_page.dart';
 import 'package:su_kien_tot/pages/home/home_guest.dart';
 import 'package:su_kien_tot/pages/home/home_user.dart';
-import 'package:su_kien_tot/pages/verification/back_id_card_capture.dart';
-import 'package:su_kien_tot/pages/verification/face_id_capture.dart';
+import 'package:su_kien_tot/pages/verification/face_capture.dart';
 import 'package:su_kien_tot/pages/verification/verification_complete.dart';
-import 'package:su_kien_tot/pages/verification/front_id_card_capture.dart';
+import 'package:su_kien_tot/pages/verification/id_card_capture.dart';
 import 'package:su_kien_tot/pages/verification/image_preview.dart';
 import 'package:su_kien_tot/pages/introduction/introduction1.dart';
 import 'package:su_kien_tot/pages/introduction/introduction2.dart';
@@ -78,9 +77,22 @@ class AppRouter {
       GoRoute(path: '/add-friend-page', builder: (context, state) => AddFriendPage()),
       GoRoute(path: '/ticket-page', builder: (context, state) => const TicketPage()),
       GoRoute(path: '/verification-page', builder: (context, state) => const VerificationPage()),
-      GoRoute(path: '/front-id-card-capture', builder: (context, state) => const FrontIdCardCapture()),
-      GoRoute(path: '/back-id-card-capture', builder: (context, state) => const BackIdCardCapture()),
-      GoRoute(path: '/face-id-capture', builder: (context, state) => const FaceIdCapture()),
+      GoRoute(
+        path: '/front-id-card-capture',
+        builder: (context, state) {
+          return IdCardCapture(
+            title: 'Chụp mặt trước của giấy tờ',
+            onNext: () => context.push('/back-id-card-capture'),
+          );
+        },
+      ),
+      GoRoute(
+        path: '/back-id-card-capture',
+        builder: (context, state) {
+          return IdCardCapture(title: 'Chụp mặt sau của giấy tờ', onNext: () => context.push('/face-capture'));
+        },
+      ),
+      GoRoute(path: '/face-capture', builder: (context, state) => const FaceCapture()),
       GoRoute(path: '/verification-complete', builder: (context, state) => const VerificationComplete()),
       GoRoute(path: '/pending-page', builder: (context, state) => const PendingPage()),
       GoRoute(

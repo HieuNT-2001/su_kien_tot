@@ -4,59 +4,30 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'dart:math' as math;
 
-class BackIdCardCapture extends StatefulWidget {
-  const BackIdCardCapture({super.key});
+import 'package:su_kien_tot/utils/camera_utils.dart';
+
+class IdCardCapture extends StatefulWidget {
+  final String title;
+  final VoidCallback onNext;
+
+  const IdCardCapture({super.key, required this.title, required this.onNext});
 
   @override
-  BackIdCardCaptureState createState() => BackIdCardCaptureState();
+  State<IdCardCapture> createState() => _FrontOfIdCardCaptureState();
 }
 
-class BackIdCardCaptureState extends State<BackIdCardCapture> {
-  CameraController? _controller;
-  List<CameraDescription>? cameras;
-  bool isCameraInitialized = false;
-
-  Future<void> initCamera() async {
-    cameras = await availableCameras(); // Lấy danh sách camera
-    if (cameras!.isNotEmpty) {
-      _controller = CameraController(
-        cameras![0], // Chọn camera sau (hoặc trước)
-        ResolutionPreset.high,
-        enableAudio: false,
-      );
-      await _controller!.initialize();
-      if (!mounted) return;
-      setState(() {
-        isCameraInitialized = true;
-      });
-    }
-  }
-
+class _FrontOfIdCardCaptureState extends State<IdCardCapture> with CameraUtils {
   Future<void> previewImage() async {
-    if (_controller != null && _controller!.value.isInitialized) {
-      final image = await _controller!.takePicture();
-      if (!mounted) return;
-      context.push(
-        '/id-card-preview',
-        extra: {
-          'title': 'Chụp mặt sau của giấy tờ',
-          'imagePath': image.path,
-          'next': () => context.push('/face-id-capture'),
-        },
-      );
-    }
+    final path = await takePicture();
+    if (path == null) return;
+    if (!mounted) return;
+    context.push('/id-card-preview', extra: {'title': widget.title, 'imagePath': path, 'next': widget.onNext});
   }
 
   @override
   void initState() {
     super.initState();
     initCamera();
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
   }
 
   @override
@@ -68,7 +39,7 @@ class BackIdCardCaptureState extends State<BackIdCardCapture> {
       },
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('Chụp mặt sau của giấy tờ', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          title: Text(widget.title, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_ios_rounded, size: 20),
             onPressed: () => showDialog(context: context, builder: (context) => const BackAlertDialog()),
@@ -82,7 +53,7 @@ class BackIdCardCaptureState extends State<BackIdCardCapture> {
                   color: Colors.black,
                   width: double.infinity,
                   height: 640,
-                  child: (isCameraInitialized && _controller != null) ? CameraPreview(_controller!) : null,
+                  child: (isCameraInitialized && cameraController != null) ? CameraPreview(cameraController!) : null,
                 ),
                 Positioned.fill(
                   child: Padding(
@@ -102,15 +73,15 @@ class BackIdCardCaptureState extends State<BackIdCardCapture> {
                   child: Center(
                     child: Transform.rotate(
                       angle: math.pi / 2, // xoay 90° ngược chiều kim đồng hồ
-                      child: const Column(
+                      child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Chụp mặt sau của giấy tờ',
-                            style: TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+                            widget.title,
+                            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(height: 8),
-                          Text(
+                          const SizedBox(height: 8),
+                          const Text(
                             'Đặt tài liệu của bạn vào trong khung và nhấn chụp',
                             style: TextStyle(color: Colors.white70),
                             textAlign: TextAlign.center,

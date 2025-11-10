@@ -3,61 +3,35 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:su_kien_tot/pages/verification/back_alert_dialog.dart';
 import 'package:su_kien_tot/pages/verification/confirm_dialog.dart';
+import 'package:su_kien_tot/utils/camera_utils.dart';
 
-class FaceIdCapture extends StatefulWidget {
-  const FaceIdCapture({super.key});
+class FaceCapture extends StatefulWidget {
+  const FaceCapture({super.key});
 
   @override
   FaceIdCaptureState createState() => FaceIdCaptureState();
 }
 
-class FaceIdCaptureState extends State<FaceIdCapture> {
-  CameraController? _controller;
-  List<CameraDescription>? cameras;
-  bool isCameraInitialized = false;
-
-  Future<void> initCamera() async {
-    cameras = await availableCameras(); // Lấy danh sách camera
-    if (cameras!.isNotEmpty) {
-      _controller = CameraController(
-        cameras![0], // Chọn camera sau (hoặc trước)
-        ResolutionPreset.high,
-        enableAudio: false,
-      );
-      await _controller!.initialize();
-      if (!mounted) return;
-      setState(() {
-        isCameraInitialized = true;
-      });
-    }
-  }
-
+class FaceIdCaptureState extends State<FaceCapture> with CameraUtils {
   Future<void> previewImage() async {
-    if (_controller != null && _controller!.value.isInitialized) {
-      final image = await _controller!.takePicture();
-      if (!mounted) return;
-      context.push(
-        '/id-card-preview',
-        extra: {
-          'title': 'Xác thực khuôn mặt',
-          'imagePath': image.path,
-          'next': () => showDialog(context: context, builder: (context) => const ConfirmDialog()),
-          'isConfirm': true,
-        },
-      );
-    }
+    final path = await takePicture();
+    if (path == null) return;
+    if (!mounted) return;
+    context.push(
+      '/id-card-preview',
+      extra: {
+        'title': 'Xác thực khuôn mặt',
+        'imagePath': path,
+        'next': () => showDialog(context: context, builder: (context) => const ConfirmDialog()),
+        'isConfirm': true,
+      },
+    );
   }
 
   @override
   void initState() {
     super.initState();
     initCamera();
-  }
-
-  @override
-  void dispose() {
-    _controller?.dispose();
-    super.dispose();
   }
 
   @override
@@ -104,8 +78,8 @@ class FaceIdCaptureState extends State<FaceIdCapture> {
                     child: SizedBox(
                       width: 350, // kích thước vòng tròn
                       height: 350,
-                      child: isCameraInitialized && _controller != null
-                          ? CameraPreview(_controller!)
+                      child: isCameraInitialized && cameraController != null
+                          ? CameraPreview(cameraController!)
                           : Container(color: Colors.black),
                     ),
                   ),
