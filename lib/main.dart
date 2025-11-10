@@ -18,9 +18,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp.router(
         routerConfig: AppRouter.router,
         title: 'Flutter Demo',
-        theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFF28F8F)),
-        ),
+        theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFF28F8F))),
       ),
     );
   }
