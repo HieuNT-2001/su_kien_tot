@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:su_kien_tot/providers/app_state.dart';
 
 class UserHeader extends StatelessWidget {
   final bool isVerified;
@@ -7,26 +9,20 @@ class UserHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String accountStatus = context.read<AppState>().accountStatus;
+
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        gradient: const LinearGradient(
-          colors: [Color(0xFFF28F8F), Color.fromARGB(255, 242, 190, 190)],
-        ),
+        gradient: const LinearGradient(colors: [Color(0xFFF28F8F), Color.fromARGB(255, 242, 190, 190)]),
         borderRadius: BorderRadius.circular(16),
       ),
       child: Column(
         children: [
-          const CircleAvatar(
-            radius: 40,
-            backgroundImage: AssetImage('assets/images/user.png'),
-          ),
+          const CircleAvatar(radius: 40, backgroundImage: AssetImage('assets/images/user.png')),
           const SizedBox(height: 8),
-          const Text(
-            'Nguyễn Trung Hiếu',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
+          const Text('Nguyễn Trung Hiếu', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
           const SizedBox(height: 4),
           const Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -40,19 +36,19 @@ class UserHeader extends StatelessWidget {
             const SizedBox(height: 8),
             Container(
               padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              child: const Row(
+              decoration: BoxDecoration(color: Colors.white, borderRadius: BorderRadius.circular(12)),
+              child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.error_outline, color: Colors.red, size: 16),
-                  SizedBox(width: 6),
-                  Text(
-                    'Xác minh tài khoản',
-                    style: TextStyle(color: Colors.red),
-                  ),
+                  if (accountStatus == 'pending') ...const [
+                    Icon(Icons.pending_actions, color: Colors.grey, size: 16),
+                    SizedBox(width: 4),
+                    Text('Đang duyệt', style: TextStyle(color: Colors.grey)),
+                  ] else ...const [
+                    Icon(Icons.error_outline, color: Colors.red, size: 16),
+                    SizedBox(width: 4),
+                    Text('Xác minh tài khoản', style: TextStyle(color: Colors.red)),
+                  ],
                 ],
               ),
             ),

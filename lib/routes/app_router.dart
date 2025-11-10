@@ -10,6 +10,12 @@ import 'package:su_kien_tot/pages/guide/guide_page.dart';
 import 'package:su_kien_tot/pages/help/help_page.dart';
 import 'package:su_kien_tot/pages/home/home_guest.dart';
 import 'package:su_kien_tot/pages/home/home_user.dart';
+import 'package:su_kien_tot/pages/id_card_verify/back_alert_dialog.dart';
+import 'package:su_kien_tot/pages/id_card_verify/back_id_card_capture.dart';
+import 'package:su_kien_tot/pages/id_card_verify/face_id_capture.dart';
+import 'package:su_kien_tot/pages/id_card_verify/finish_confirm.dart';
+import 'package:su_kien_tot/pages/id_card_verify/front_id_card_capture.dart';
+import 'package:su_kien_tot/pages/id_card_verify/image_preview.dart';
 import 'package:su_kien_tot/pages/introduction/introduction1.dart';
 import 'package:su_kien_tot/pages/introduction/introduction2.dart';
 import 'package:su_kien_tot/pages/introduction/introduction3.dart';
@@ -72,6 +78,54 @@ class AppRouter {
       GoRoute(path: '/create-pin-page', builder: (context, state) => const CreatePinPage()),
       GoRoute(path: '/add-friend-page', builder: (context, state) => AddFriendPage()),
       GoRoute(path: '/ticket-page', builder: (context, state) => const TicketPage()),
+      GoRoute(
+        path: '/front-id-card-capture',
+        builder: (context, state) => PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) async {
+            if (!didPop) await showDialog(context: context, builder: (_) => const BackAlertDialog());
+          },
+          child: const FrontIdCardCapture(),
+        ),
+      ),
+      GoRoute(
+        path: '/back-id-card-capture',
+        builder: (context, state) => PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) async {
+            if (!didPop) await showDialog(context: context, builder: (_) => const BackAlertDialog());
+          },
+          child: const BackIdCardCapture(),
+        ),
+      ),
+      GoRoute(
+        path: '/face-id-capture',
+        builder: (context, state) => PopScope(
+          canPop: false,
+          onPopInvokedWithResult: (didPop, result) async {
+            if (!didPop) await showDialog(context: context, builder: (_) => const BackAlertDialog());
+          },
+          child: const FaceIdCapture(),
+        ),
+      ),
+      GoRoute(
+        path: '/id-card-preview',
+        builder: (context, state) {
+          final extra = state.extra as Map<String, dynamic>;
+          final String title = extra['title']!;
+          final String imagePath = extra['imagePath']!;
+          final VoidCallback next = extra['next']!;
+          final bool isConfirm = extra['isConfirm'] ?? false;
+          return PopScope(
+            canPop: false,
+            onPopInvokedWithResult: (didPop, result) async {
+              if (!didPop) await showDialog(context: context, builder: (_) => const BackAlertDialog());
+            },
+            child: ImagePreview(title: title, imagePath: imagePath, next: next, isConfirm: isConfirm),
+          );
+        },
+      ),
+      GoRoute(path: '/finish-confirm', builder: (context, state) => const FinishConfirm()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(

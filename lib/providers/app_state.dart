@@ -5,11 +5,13 @@ class AppState with ChangeNotifier {
   String _languague = 'Tiếng Việt';
   bool _isRevenueVisible = true;
   bool _isExpenseVisible = true;
+  String _accountStatus = 'unVerify';
 
   String get role => _role;
   String get languague => _languague;
   bool get isRevenueVisible => _isRevenueVisible;
   bool get isExpenseVisible => _isExpenseVisible;
+  String get accountStatus => _accountStatus;
 
   void setRole(String value) {
     _role = value;
@@ -28,6 +30,11 @@ class AppState with ChangeNotifier {
 
   void setExpenseVisible(bool value) {
     _isExpenseVisible = value;
+    notifyListeners();
+  }
+
+  void setAccountStatus(String value) {
+    _accountStatus = value;
     notifyListeners();
   }
 }

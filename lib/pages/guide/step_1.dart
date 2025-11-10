@@ -12,10 +12,7 @@ class Step1 extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Bước 1: Chụp giấy tờ tùy thân',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
-            ),
+            const Text('Bước 1: Chụp giấy tờ tùy thân', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
             const SizedBox(height: 16),
             const Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -24,7 +21,7 @@ class Step1 extends StatelessWidget {
                 SizedBox(width: 8),
                 Expanded(
                   child: Text(
-                    'Giáy tờ còn hạn sử dụng. Là hình gốc, không scan và photocopy',
+                    'Giấy tờ còn hạn sử dụng. Là hình gốc, không scan và photocopy',
                     style: TextStyle(fontSize: 16),
                   ),
                 ),
@@ -36,12 +33,7 @@ class Step1 extends StatelessWidget {
               children: [
                 Icon(Icons.check_circle_outline_rounded, color: Colors.green),
                 SizedBox(width: 8),
-                Expanded(
-                  child: Text(
-                    'Đảm bảo ảnh rõ nét không bị mờ',
-                    style: TextStyle(fontSize: 16),
-                  ),
-                ),
+                Expanded(child: Text('Đảm bảo ảnh rõ nét không bị mờ', style: TextStyle(fontSize: 16))),
               ],
             ),
             const SizedBox(height: 16),
