@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:su_kien_tot/providers/app_state.dart';
 
 class VerifySection extends StatelessWidget {
   final bool isVerified;
@@ -8,6 +10,8 @@ class VerifySection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String accountStatus = context.read<AppState>().accountStatus;
+
     return Container(
       padding: const EdgeInsets.all(16),
       color: const Color(0xFFF28F8F),
@@ -21,10 +25,7 @@ class VerifySection extends StatelessWidget {
               const Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    'Xác minh tài khoản',
-                    style: TextStyle(fontWeight: FontWeight.bold),
-                  ),
+                  Text('Xác minh tài khoản', style: TextStyle(fontWeight: FontWeight.bold)),
                   Text('• Xác thực giấy tờ tùy thân\n• Xác thực khuôn mặt'),
                 ],
               ),
@@ -32,7 +33,13 @@ class VerifySection extends StatelessWidget {
           ),
           const SizedBox(height: 8),
           ElevatedButton.icon(
-            onPressed: () => context.push('/guide-page'),
+            onPressed: () {
+              if (accountStatus == 'pending') {
+                context.push('/pending-page');
+              } else {
+                context.push('/guide-page');
+              }
+            },
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.white,
               foregroundColor: const Color(0xFFF28F8F),
@@ -40,15 +47,9 @@ class VerifySection extends StatelessWidget {
             ),
             label: const Text(
               'Xác thực ngay',
-              style: TextStyle(
-                color: Colors.black,
-                fontWeight: FontWeight.bold,
-              ),
+              style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
             ),
-            icon: const Icon(
-              Icons.arrow_forward_ios_rounded,
-              color: Colors.black,
-            ),
+            icon: const Icon(Icons.arrow_forward_ios_rounded, color: Colors.black),
             iconAlignment: IconAlignment.end,
           ),
           const SizedBox(height: 8),

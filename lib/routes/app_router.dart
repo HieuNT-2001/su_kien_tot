@@ -25,6 +25,7 @@ import 'package:su_kien_tot/pages/login_register/login_register.dart';
 import 'package:su_kien_tot/pages/notification/notification_page.dart';
 import 'package:su_kien_tot/pages/otp_confirn/otp_confirm.dart';
 import 'package:su_kien_tot/pages/payment/payment_page.dart';
+import 'package:su_kien_tot/pages/pending/pending_page.dart';
 import 'package:su_kien_tot/pages/profession/Profession_page.dart';
 import 'package:su_kien_tot/pages/profile/profile_page.dart';
 import 'package:su_kien_tot/pages/search/search_page.dart';
@@ -126,6 +127,7 @@ class AppRouter {
         },
       ),
       GoRoute(path: '/finish-confirm', builder: (context, state) => const FinishConfirm()),
+      GoRoute(path: '/pending-page', builder: (context, state) => const PendingPage()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(
