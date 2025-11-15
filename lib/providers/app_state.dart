@@ -6,12 +6,14 @@ class AppState with ChangeNotifier {
   bool _isRevenueVisible = true;
   bool _isExpenseVisible = true;
   String _accountStatus = 'unVerify';
+  String _selectedBank = '';
 
   String get role => _role;
   String get languague => _languague;
   bool get isRevenueVisible => _isRevenueVisible;
   bool get isExpenseVisible => _isExpenseVisible;
   String get accountStatus => _accountStatus;
+  String get selectedBank => _selectedBank;
 
   void setRole(String value) {
     _role = value;
@@ -35,6 +37,11 @@ class AppState with ChangeNotifier {
 
   void setAccountStatus(String value) {
     _accountStatus = value;
+    notifyListeners();
+  }
+
+  void setSelectedBank(String value) {
+    _selectedBank = value;
     notifyListeners();
   }
 }
