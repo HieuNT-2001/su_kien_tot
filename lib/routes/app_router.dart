@@ -12,6 +12,7 @@ import 'package:su_kien_tot/pages/help/help_page.dart';
 import 'package:su_kien_tot/pages/home/home_guest.dart';
 import 'package:su_kien_tot/pages/home/home_user.dart';
 import 'package:su_kien_tot/pages/select_bank/select_bank_page.dart';
+import 'package:su_kien_tot/pages/topup/topup_page.dart';
 import 'package:su_kien_tot/pages/verification/face_capture.dart';
 import 'package:su_kien_tot/pages/verification/verification_complete.dart';
 import 'package:su_kien_tot/pages/verification/id_card_capture.dart';
@@ -110,6 +111,7 @@ class AppRouter {
       ),
       GoRoute(path: '/cashout-page', builder: (context, state) => const CashoutPage()),
       GoRoute(path: '/select-bank-page', builder: (context, state) => const SelectBankPage()),
+      GoRoute(path: '/topup-page', builder: (context, state) => const TopupPage()),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) {
           return Scaffold(

@@ -24,9 +24,7 @@ class ExpenseWallet extends StatelessWidget {
                     title: 'Ví chi phí',
                     color: Colors.green,
                     balance: '0 đ',
-                    action: () => context.read<AppState>().setExpenseVisible(
-                      !showExpense,
-                    ),
+                    action: () => context.read<AppState>().setExpenseVisible(!showExpense),
                     showBalance: context.read<AppState>().isExpenseVisible,
                   ),
                   Positioned(
@@ -36,11 +34,7 @@ class ExpenseWallet extends StatelessWidget {
                       onTap: () => context.pop(),
                       child: const CircleAvatar(
                         backgroundColor: Colors.green,
-                        child: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
-                          size: 32,
-                        ),
+                        child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 32),
                       ),
                     ),
                   ),
@@ -48,12 +42,9 @@ class ExpenseWallet extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ElevatedButton.icon(
-                onPressed: () => context.push('/'),
+                onPressed: () => context.push('/topup-page'),
                 icon: const Icon(Icons.add_card_rounded),
-                label: const Text(
-                  'Rút tiền',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                label: const Text('Nạp tiền', style: TextStyle(fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.green,

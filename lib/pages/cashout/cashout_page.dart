@@ -77,7 +77,7 @@ class CashoutPageState extends State<CashoutPage> {
                     subtitle: const Text('0đ', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   ),
                   const SizedBox(height: 16),
-                  const Text('Ngân hàng', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  const Text('Ngân hàng', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   ListTile(
                     onTap: () => context.push('/select-bank-page'),
@@ -90,7 +90,7 @@ class CashoutPageState extends State<CashoutPage> {
                     trailing: const Icon(Icons.chevron_right_rounded, size: 32, color: Colors.grey),
                   ),
                   const SizedBox(height: 16),
-                  const Text('Số tài khoản', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  const Text('Số tài khoản', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Container(
                     height: 55,
@@ -106,7 +106,7 @@ class CashoutPageState extends State<CashoutPage> {
                     ),
                   ),
                   const SizedBox(height: 16),
-                  const Text('Nhập số tiền cần rút', style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+                  const Text('Nhập số tiền cần rút', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                   const SizedBox(height: 8),
                   Container(
                     height: 55,
