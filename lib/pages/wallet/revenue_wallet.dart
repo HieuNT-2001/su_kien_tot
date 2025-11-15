@@ -24,9 +24,7 @@ class RevenueWallet extends StatelessWidget {
                     title: 'Ví doanh thu',
                     color: Colors.blue,
                     balance: '0 đ',
-                    action: () => context.read<AppState>().setRevenueVisible(
-                      !showRevenue,
-                    ),
+                    action: () => context.read<AppState>().setRevenueVisible(!showRevenue),
                     showBalance: context.read<AppState>().isRevenueVisible,
                   ),
                   Positioned(
@@ -36,11 +34,7 @@ class RevenueWallet extends StatelessWidget {
                       onTap: () => context.pop(),
                       child: const CircleAvatar(
                         backgroundColor: Colors.blue,
-                        child: Icon(
-                          Icons.arrow_back_ios_new_rounded,
-                          color: Colors.white,
-                          size: 32,
-                        ),
+                        child: Icon(Icons.arrow_back_ios_new_rounded, color: Colors.white, size: 32),
                       ),
                     ),
                   ),
@@ -48,12 +42,9 @@ class RevenueWallet extends StatelessWidget {
               ),
               const SizedBox(height: 16),
               ElevatedButton.icon(
-                onPressed: () => context.push('/'),
+                onPressed: () => context.push('/cashout-page'),
                 icon: const Icon(Icons.remove_circle_outline_rounded),
-                label: const Text(
-                  'Rút tiền',
-                  style: TextStyle(fontWeight: FontWeight.bold),
-                ),
+                label: const Text('Rút tiền', style: TextStyle(fontWeight: FontWeight.bold)),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Colors.white,
                   foregroundColor: Colors.blue,
